@@ -6,9 +6,9 @@ Ultima revisione: 10/11/2015
 const int pin[4] = {3, 4, 5, 6}; // Pin di uscita
 const int pin_enable = 7;  // Pin di abilitazione
 const byte numPins = 4;  // Numero di pin
+const int pin_punto = 8;  // Pin del punto
 int numero = 0;  // Numero temporaneo da visualizzare
 int flag_punto = 0;   // Flag di abilitazione del punto
-const int pin_punto = 8;  // Pin del punto
 
 void setup()
 {
