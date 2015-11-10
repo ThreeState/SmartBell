@@ -4,15 +4,15 @@ Autore: Manuel Romei
 Ultima revisione: 10/11/2015
 */
 const int pin[4] = {3, 4, 5, 6}; // Pin di uscita
-const int pin_enable = 7;
-const byte numPins = 4;
-int numero = 0;
-int flag_punto = 0;
-const int pin_punto = 8;
+const int pin_enable = 7;  // Pin di abilitazione
+const byte numPins = 4;  // Numero di pin
+int numero = 0;  // Numero temporaneo da visualizzare
+int flag_punto = 0;   // Flag di abilitazione del punto
+const int pin_punto = 8;  // Pin del punto
 
 void setup()
 {
-  initialize();
+  initialize();   // Inizializzazione
 }
 
 void loop()
@@ -49,13 +49,13 @@ void invia(int a)
    }
 }
 
-void toggle_enable()
+void toggle_enable()  // Funzione che fa il refresh del display
 {
   digitalWrite(pin_enable, HIGH);
   digitalWrite(pin_enable, LOW);
 }
 
-void punto_toggle()
+void punto_toggle()   // Cambiamo lo stato del punto
 {
   if(flag_punto == 0)
   {
