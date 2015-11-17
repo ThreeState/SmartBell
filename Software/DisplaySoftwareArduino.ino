@@ -1,8 +1,8 @@
 /*
 Nome: Software Arduino SmartBell
 Autore: Manuel Romei
-Ultima revisione: 16/11/2015
-Versione: 0.2
+Ultima revisione: 17/11/2015
+Versione: 0.3
 */
 const int pin[4] = {3, 4, 5, 6}; // Pin di uscita
 const int pin_1[4] = {50, 51, 52, 53};  // Pin di uscita del secondo display
@@ -18,17 +18,21 @@ int flag_punto_uno = 24;
 void setup()
 {
   initialize();
+  digitalWrite(2, HIGH);
+  digitalWrite(7, HIGH);
 }
 
 void loop()
 {
   invia(5, 0);
   refresh(1);
-  refresh(1);
-  delay(1000);
   invia(3, 0);
   refresh(0);
+  delay(1000);
+  invia(5, 0);
   refresh(0);
+  invia(3, 0);
+  refresh(1);
   delay(1000);
   //punto_toggle(0);
 }
@@ -73,12 +77,12 @@ void refresh(int nume)
   switch(nume)
   {
     case 0:
-      digitalWrite(pin_enable, HIGH);
       digitalWrite(pin_enable, LOW);
+      digitalWrite(pin_enable, HIGH);
       break;
     case 1:
-      digitalWrite(pin_enable_uno, HIGH);
       digitalWrite(pin_enable_uno, LOW);
+      digitalWrite(pin_enable_uno, HIGH);
       break;
   }
 }
