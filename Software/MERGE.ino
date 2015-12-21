@@ -13,6 +13,7 @@ const int pin_punto = 8;
 int numero = 0;
 int flag_punto = 0;
 int flag_punto_uno = 24;
+
 /*ROBA DEL DCF77*/ 
 // Connect the clock module to pin D19 / A5
 const uint8_t dcf77_sample_pin = 19; // A5
@@ -151,11 +152,23 @@ void setup() {
  
 void loop() {
     static time_t prevDisplay = 0;    
- 
+    
     if( now() != prevDisplay) {
         prevDisplay = now();
         digitalClockDisplay();
     }
+    
+    int sube = hour();
+    String suby = String(sube);
+    String sss = suby.substring(0,1);
+    String www = suby.substring(1,2);
+    invia(sss.toInt(),0);
+    Serial.println("Uscita 1 display: "+sss);
+    refresh(0);
+    invia(www.toInt(),0);
+    Serial.println("Uscita 2 display: "+www);
+    refresh(1);
+
 }
 
 void initialize()
